@@ -10,10 +10,10 @@ const foreCast = (latitude, longtitude, callback) => {
       console.log(body.error);
       callback("Unable to find that location", undefined);
     } else {
-      const { temperature, feelslike, weather_descriptions } = body.current;
+      const { temperature, feelslike, weather_descriptions, humidity } = body.current;
       callback(
         undefined,
-        `${weather_descriptions[0]}. It's is currently ${temperature} degrees outside, but it feels like ${feelslike}`
+        `${weather_descriptions[0]}. It's is currently ${temperature} degrees outside, but it feels like ${feelslike}. The humidity is ${humidity}%.`
       );
     }
   });
