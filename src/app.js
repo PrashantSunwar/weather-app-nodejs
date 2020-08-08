@@ -5,6 +5,7 @@ const geoCode = require("./utils/geoCode");
 const foreCast = require("./utils/foreCast");
 
 const app = express();
+const port = process.env.PORT || 3000; // 3000 will be used when the project is served locally
 
 // Define paths fr Express config
 const publicDirectoryPath = path.join(__dirname, "../public");
@@ -88,6 +89,7 @@ app.get("*", (req, resp) => {
 });
 
 // App is listening on port 3000
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
+// Change when deploying since we are deploying our app to heroku, it will provide the specific port
+app.listen(port, () => {
+  console.log("Server is running on port " + port);
 });
